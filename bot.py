@@ -1,7 +1,6 @@
-# bot.py
 import os
 
-from discord import Message, RawReactionActionEvent, Member
+from discord import RawReactionActionEvent, Member
 from discord.ext.commands import Bot
 from discord.utils import get
 from dotenv import load_dotenv
@@ -38,7 +37,6 @@ async def on_raw_reaction_add(payload: RawReactionActionEvent):
     if message_id != int(FROM_SCRATCH_MSG_ID):
         return
     role = get(member.guild.roles, name=ROLES[emoji_id])
-    print("DONE")
     await member.add_roles(role)
 
 
